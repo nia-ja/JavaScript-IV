@@ -31,9 +31,21 @@ class Instructor extends Person {
     }
 
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}.`;
+        let points = this.randomGrade(student);
+        return `${student.name} receives ${points} points on ${subject}.`; // changed method to show points not a string "a perfect score"
     }
+
+    //stretch problem 2
+    randomGrade (student) {
+        let num1 = student.grade();
+        const min = Math.ceil(-5);
+        const max = Math.floor(6);
+        let num2 = Math.floor(Math.random() * (max - min)) + min;
+        return (num1 + num2);
+    }
+
 } // <---------- Instructor
+
 
 
 // Sub-Class Student
@@ -60,13 +72,23 @@ class Student extends Person {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     } 
 
-    //stretch problem
+    //stretch problem 1
     grade() {
         const min = Math.ceil(1);
         const max = Math.floor(101);
         let number = Math.floor(Math.random() * (max - min)) + min;
         return number;
     }
+
+    //stretch problem 1
+    graduate(grade) {
+        if (grade > 70) {
+            return `Congratulatons, ${this.name}, you did it!`;
+        } else {
+            return `Sorry, but not yet!`;
+        }
+    }
+
 } // <---------- Student
 
 
@@ -168,6 +190,7 @@ console.log(mario);
 console.log(mario.specialty);
 console.log(mario.demo('HTML'));
 console.log(mario.grade(lina, 'JavaScript'));
+console.log(mario.randomGrade(mike));
 //from Person Class
 console.log(mario.gender);
 console.log(mario.speak());
@@ -203,6 +226,12 @@ console.log(lina.previousBackground);
 console.log(lina.listsSubjects());
 console.log(lina.PRAssignments('"User Interface I"'));
 console.log(lina.sprintChallenge('"Introduction to User Interface and Git"'));
+console.log(lina.graduate(80));
+console.log(lina.graduate(70));
+console.log(lina.graduate(71));
+console.log(lina.graduate(-2));
+console.log(lina.graduate(0));
+
 //from Person Class
 console.log(lina.gender);
 console.log(lina.speak());
