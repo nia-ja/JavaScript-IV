@@ -30,7 +30,7 @@ class Instructor extends Person {
     }
 
     grade(student, subject) {
-        this.name = student.name;
+        // this.name = student.name;
         return `${student.name} receives a perfect score on ${subject}.`;
     }
 } // <------ Instructor
@@ -84,12 +84,12 @@ class ProjectManager extends Instructor {
         this.favInstructor = attributes.favInstructor;
     }
 
-    standUp() {
-
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standup time!`;
     }
 
-    debugsCode() {
-
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 } // <------ ProjectManager
 
@@ -136,14 +136,62 @@ const lina = new Student({
     favSubjects: ['CSS', 'JavaScript', 'Python']
 });
 
+//PM objects
+
+const josh = new ProjectManager({
+    name: "Josh",
+    age: 55,
+    location: "NY, NY",
+    gender: "male",
+    specialty: "Back-end",
+    favLanguage: ['C', "Perl", "Erlang"],
+    catchPhrase: "Let's get this bread!",
+    gradClassName: "Web4",
+    favInstructor: "Cameron Pope"
+});
+
+const mary = new ProjectManager({
+    name: "Mary",
+    age: 41,
+    location: "Seattle, WA",
+    gender: "female",
+    specialty: "Front-end",
+    favLanguage: ['CSS', 'HTML', 'Python'],
+    catchPhrase: "There is an engeneer in everyone!",
+    gradClassName: "Webpt4",
+    favInstructor: "Josh Kneel"
+});
+
+
+
+
+
+
+//tests for Instructor - Mario
 console.log(mario.speak());
 console.log(mario.specialty);
 console.log(mario.demo('HTML'));
+console.log(mario.grade(lina, 'JavaScript'));
+
+//tests for Instructor - Tania
 console.log(tania.catchPhrase);
 console.log(tania.speak());
+console.log(tania.grade(mike, 'CSS'));
+console.log(tania.demo("Python"));
+
+//tests for Student - Mike
 console.log(mike.speak());
+console.log(mike.age);
 console.log(mike.favSubjects);
 console.log(mike.listsSubjects());
-console.log(tania.grade(mike, 'CSS'));
 console.log(mike.PRAssignments('"JS IV"'));
-console.log(mike.sprintChallenge('"CSS"'));
+console.log(mike.sprintChallenge('"JavaScript Fundamentals"'));
+
+//tests for Student - Lina
+console.log(lina.speak());
+console.log(lina.gender);
+console.log(lina.previousBackground);
+console.log(lina.listsSubjects());
+console.log(lina.PRAssignments('"User Interface I"'));
+console.log(lina.sprintChallenge('"Introduction to User Interface and Git"'));
+
