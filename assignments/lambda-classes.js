@@ -80,7 +80,7 @@ class Student extends Person {
         return number;
     }
 
-    //stretch problem 1
+    //stretch problem 3
     graduate(grade) {
         if (grade > 70) {
             return `Congratulatons, ${this.name}, you did it!`;
@@ -202,6 +202,8 @@ console.log(tania);
 console.log(tania.catchPhrase);
 console.log(tania.grade(mike, 'CSS'));
 console.log(tania.demo("Python"));
+console.log(tania.randomGrade(mike));
+//from Person Class
 console.log(tania.age);
 console.log(tania.speak());
 
@@ -231,10 +233,10 @@ console.log(lina.graduate(70));
 console.log(lina.graduate(71));
 console.log(lina.graduate(-2));
 console.log(lina.graduate(0));
-
 //from Person Class
 console.log(lina.gender);
 console.log(lina.speak());
+
 
 //tests for PM - Josh
 console.log(josh);
@@ -244,9 +246,11 @@ console.log(josh.standUp("Web4"));
 //from Instructor Sub-Class
 console.log(josh.catchPhrase);
 console.log(josh.demo('"DOM I"'));
+console.log(josh.randomGrade(lina));
 //from Person Class
 console.log(josh.age);
 console.log(josh.speak());
+
 
 //tests for PM - Mary
 console.log(mary);
