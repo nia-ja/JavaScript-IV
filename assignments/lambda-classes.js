@@ -59,6 +59,14 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     } 
+
+    //stretch problem
+    grade() {
+        const min = Math.ceil(1);
+        const max = Math.floor(101);
+        let number = Math.floor(Math.random() * (max - min)) + min;
+        return number;
+    }
 } // <---------- Student
 
 
@@ -182,6 +190,7 @@ console.log(mike.favSubjects);
 console.log(mike.listsSubjects());
 console.log(mike.PRAssignments('"JS IV"'));
 console.log(mike.sprintChallenge('"JavaScript Fundamentals"'));
+console.log(mike.grade());
 //from Person Class
 console.log(mike.age);
 console.log(mike.speak());
