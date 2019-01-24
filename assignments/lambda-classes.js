@@ -1,6 +1,8 @@
 // CODE here for your Lambda Classes
 
-//class Person
+// ============================ CLASSES ===================================
+
+// Class Person
 class Person {
     constructor(attributes) {
         this.name = attributes.name;
@@ -10,13 +12,12 @@ class Person {
     }
 
     speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}`;
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
-} //<-----Person
+} //<-------------- Person
 
 
-
-//subClass Instructor
+// Sub-Class Instructor
 class Instructor extends Person {
     constructor(attributes) {
         super(attributes);
@@ -30,15 +31,12 @@ class Instructor extends Person {
     }
 
     grade(student, subject) {
-        // this.name = student.name;
         return `${student.name} receives a perfect score on ${subject}.`;
     }
-} // <------ Instructor
+} // <---------- Instructor
 
 
-
-
-//subClass Student
+// Sub-Class Student
 class Student extends Person {
     constructor(attributes) {
         super(attributes);
@@ -48,18 +46,6 @@ class Student extends Person {
     }
 
     listsSubjects() {
-        // const subjects = this.favSubjects;
-        // function everySubject(arr, cb) {
-        //     let length = arr.length;
-        //     for (let i = 0; i < length; i++) {
-        //         cb(arr[i]);
-        //     }
-        // }
-
-        // everySubject(subjects, function(value){
-        //     console.log(value);
-        // });
-
         const subjects = this.favSubjects;
         subjects.forEach(function(subject) {
             console.log(subject);
@@ -73,10 +59,10 @@ class Student extends Person {
     sprintChallenge(subject) {
         return `${this.name} has begun sprint challenge on ${subject}.`;
     } 
-} // <------ Student
+} // <---------- Student
 
 
-
+// Sub-Class ProjectManager
 class ProjectManager extends Instructor {
     constructor(attributes) {
         super(attributes);
@@ -89,9 +75,13 @@ class ProjectManager extends Instructor {
     }
 
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
     }
 } // <------ ProjectManager
+
+
+// ============================ OBJECTS ===================================
+
 
 //Instructor objects
 const mario = new Instructor({
@@ -115,7 +105,6 @@ const tania = new Instructor({
 });
 
 //Student objects
-
 const mike = new Student({
     name: "Mike",
     age: "30",
@@ -137,7 +126,6 @@ const lina = new Student({
 });
 
 //PM objects
-
 const josh = new ProjectManager({
     name: "Josh",
     age: 55,
@@ -164,34 +152,72 @@ const mary = new ProjectManager({
 
 
 
+// ========================== TESTS =================================================
 
-
-
-//tests for Instructor - Mario
-console.log(mario.speak());
+//tests for INSTRUCTOR - Mario
+console.log(mario);
+//from Instructor Sub-Class
 console.log(mario.specialty);
 console.log(mario.demo('HTML'));
 console.log(mario.grade(lina, 'JavaScript'));
+//from Person Class
+console.log(mario.gender);
+console.log(mario.speak());
 
-//tests for Instructor - Tania
+
+//tests for INSTRUCTOR - Tania
+console.log(tania);
+//from Instructor Sub-Class
 console.log(tania.catchPhrase);
-console.log(tania.speak());
 console.log(tania.grade(mike, 'CSS'));
 console.log(tania.demo("Python"));
+console.log(tania.age);
+console.log(tania.speak());
 
-//tests for Student - Mike
-console.log(mike.speak());
-console.log(mike.age);
+
+//tests for STUDENT - Mike
+console.log(mike);
+//from Sudent Sub-Class
 console.log(mike.favSubjects);
 console.log(mike.listsSubjects());
 console.log(mike.PRAssignments('"JS IV"'));
 console.log(mike.sprintChallenge('"JavaScript Fundamentals"'));
+//from Person Class
+console.log(mike.age);
+console.log(mike.speak());
 
-//tests for Student - Lina
-console.log(lina.speak());
-console.log(lina.gender);
+
+//tests for STUDENT - Lina
+console.log(lina);
+//from Sudent Sub-Class
 console.log(lina.previousBackground);
 console.log(lina.listsSubjects());
 console.log(lina.PRAssignments('"User Interface I"'));
 console.log(lina.sprintChallenge('"Introduction to User Interface and Git"'));
+//from Person Class
+console.log(lina.gender);
+console.log(lina.speak());
 
+//tests for PM - Josh
+console.log(josh);
+//from PM Sub-Class
+console.log(josh.gradClassName);
+console.log(josh.standUp("Web4"));
+//from Instructor Sub-Class
+console.log(josh.catchPhrase);
+console.log(josh.demo('"DOM I"'));
+//from Person Class
+console.log(josh.age);
+console.log(josh.speak());
+
+//tests for PM - Mary
+console.log(mary);
+//from PM Sub-Class
+console.log(mary.favInstructor);
+console.log(mary.debugsCode(lina, '"JS-II"'));
+//from Instructor Sub-Class
+console.log(mary.specialty);
+console.log(mary.grade(lina, '"Responsive Web Design - I"'));
+//from Person Class
+console.log(mary.gender);
+console.log(mary.speak());
